@@ -437,7 +437,7 @@ footer {
    PAGE-SPECIFIC: INDEX.HTML
    ========================================================================== */
     body {
-        background: url(assets/backgroundAndLogo/1.png);
+        background: url(./resources/images/1.png);
     }
 
    .hero {
@@ -500,8 +500,8 @@ footer {
 .logo-shine {
   position: absolute;
   inset: 0;
-  -webkit-mask-image: url('assets/backgroundAndLogo/logo.png');
-  mask-image: url('assets/backgroundAndLogo/logo.png');
+  -webkit-mask-image: url('./resources/images/logo.png');
+  mask-image: url('./resources/images/logo.png');
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -636,7 +636,7 @@ footer {
    PAGE-SPECIFIC: ABOUT.HTML
    ========================================================================== */
         body {
-        background: url(assets/backgroundAndLogo/1.png);
+        background: url(./resources/images/1.png);
     }
 
 .about-hero {
@@ -800,7 +800,7 @@ footer {
    PAGE-SPECIFIC: CAREERTRACK.HTML
    ========================================================================== */
     body {
-        background: url(assets/backgroundAndLogo/2.png);
+        background: url(./resources/images/2.png);
     }
 
    .top-bar {
