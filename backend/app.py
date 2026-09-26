@@ -4,7 +4,7 @@ import json
 import time
 import re
 import traceback
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 from google import genai
@@ -15,7 +15,7 @@ from data import (
     INSTITUTIONS,
     ONET_ATTRIBUTION,
 )
-from pdf_generator import create_pdf_report
+
 
 load_dotenv()
 app = Flask(__name__)
@@ -37,12 +37,10 @@ Do not recommend the old 4-strand (STEM/ABM/HUMSS/TVL) model — it no longer ex
 """
 
 def _generate_with_resilience(prompt: str):
-    # Matches the exact active models listed in your Google AI Studio project usage
     models_to_try = [
-        "gemini-3.5-flash-lite",
-        "gemini-3.8-flash"
+        "gemini-2.5-flash",
+        "gemini-1.5-flash"
     ]
-    
     last_error = None
     for model_name in models_to_try:
         try:
@@ -52,6 +50,7 @@ def _generate_with_resilience(prompt: str):
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     temperature=0.2,
+                    response_mime_type="application/json"
                 ),
             )
             if response and response.text:
@@ -60,7 +59,6 @@ def _generate_with_resilience(prompt: str):
             last_error = e
             print(f"Model {model_name} failed: {e}")
             continue
-            
     raise last_error
 
 @app.route("/api/onet-questions", methods=["GET"])
@@ -92,14 +90,14 @@ def generate():
         }), 400
 
     prompt = f"""{SYSTEM_CONTEXT}
-
 Analyze this Grade 10 student:
-Subject grades (0-100): Math {math_grade}, Science {sci_grade}, English {eng_grade}, TLE {tle_grade}
+Subject grades (0-100): Math ({math_grade}), Science ({sci_grade}), English ({eng_grade}), TLE ({tle_grade})
 Commerce/business interest indicated: {commerce_interest}
 TLE specialization interest: {tle_track}
-RIASEC interest checklist results (count out of 10 per domain): {json.dumps(riasec_scores)}
+RIASEC interest checklist results (count out of 10 per domain):
+{json.dumps(riasec_scores)}
 
-Output ONLY a valid JSON object matching this schema without any markdown wrapping or introductory text:
+Output ONLY a valid JSON object matching this schema:
 {{
   "primary_track": "Academic or TechPro",
   "primary_cluster": "Name of cluster or specialization",
@@ -111,19 +109,12 @@ Output ONLY a valid JSON object matching this schema without any markdown wrappi
   "scholarship_suggestions": ["scholarship 1"],
   "career_suggestions": ["career 1", "career 2"],
   "institution_suggestions": ["school 1", "school 2"]
-}}
-"""
+}}"""
+
     try:
         response = _generate_with_resilience(prompt)
-        text_output = response.text.strip()
-        
-        # Extract pure JSON object using regex
-        json_match = re.search(r'\{.*\}', text_output, re.DOTALL)
-        clean_json_str = json_match.group(0) if json_match else text_output
-
-        result = json.loads(clean_json_str)
+        result = json.loads(response.text.strip())
         return jsonify({"result": result, "scores": riasec_scores})
-
     except Exception as e:
         error_trace = traceback.format_exc()
         print("Detailed Generation Error:\n", error_trace)
@@ -132,28 +123,6 @@ Output ONLY a valid JSON object matching this schema without any markdown wrappi
             "message": "Something went wrong generating the recommendation.",
             "technical_detail": str(e),
             "traceback": error_trace
-        }), 500
-
-@app.route("/api/pdf", methods=["POST"])
-def pdf():
-    payload = request.get_json(force=True, silent=True) or {}
-    scores = payload.get("scores", {})
-    result = payload.get("result", {})
-    try:
-        pdf_bytes = create_pdf_report(scores, result)
-        return send_file(
-            io.BytesIO(pdf_bytes),
-            mimetype="application/pdf",
-            as_attachment=True,
-            download_name="CareerPath_AI_Guidance_Report.pdf"
-        )
-    except Exception as e:
-        error_trace = traceback.format_exc()
-        print("Detailed PDF Error:\n", error_trace)
-        return jsonify({
-            "error": "pdf_failed",
-            "message": "PDF export hit a snag.",
-            "technical_detail": str(e)
         }), 500
 
 if __name__ == "__main__":
