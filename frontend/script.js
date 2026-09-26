@@ -430,31 +430,58 @@ function initCareerTrackPage() {
     resultsSection.classList.remove("hidden");
   }
 
-  downloadPdfBtn.addEventListener("click", async () => {
-    pdfWarning.classList.add("hidden");
-    try {
-      const res = await fetch(`${API_BASE}/api/pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ result: lastResult, scores: lastScores }),
-      });
+  downloadPdfBtn.addEventListener("click", () => {
+    if (!lastResult) return;
 
-      if (!res.ok) throw new Error("PDF generation failed");
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "CareerPath_AI_Guidance_Report.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    } catch {
-      pdfWarning.textContent = "Guidance summary generated above, but the PDF download service encountered an error.";
-      pdfWarning.classList.remove("hidden");
-    }
-  });
+    // Title
+    doc.setFont("Helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("CareerPath AI SHS Pathway Report", 105, 15, { align: "center" });
+
+    // Primary Recommendation
+    doc.setFontSize(12);
+    doc.text(`Recommended Track: ${lastResult.primary_track || "N/A"} - ${lastResult.primary_cluster || "N/A"}`, 14, 28);
+    
+    doc.setFont("Helvetica", "normal");
+    doc.setFontSize(10);
+    const splitRationale = doc.splitTextToSize(lastResult.primary_rationale || "", 180);
+    doc.text(splitRationale, 14, 35);
+
+    let startY = 35 + (splitRationale.length * 5) + 5;
+
+    // Helper to generate structured lists/tables
+    const addSection = (title, items) => {
+        if (!items || items.length === 0) return;
+        
+        doc.setFont("Helvetica", "bold");
+        doc.setFontSize(11);
+        doc.text(title, 14, startY);
+        startY += 4;
+
+        const tableData = items.map(item => [item]);
+        doc.autoTable({
+            startY: startY,
+            body: tableData,
+            theme: 'plain',
+            styles: { fontSize: 9, cellPadding: 1 },
+            margin: { left: 14, right: 14 }
+        });
+        
+        startY = doc.lastAutoTable.finalY + 6;
+    };
+
+    addSection("Prerequisite Gaps", lastResult.prerequisite_gaps);
+    addSection("Suggested CHED Degree Programs", lastResult.degree_suggestions);
+    addSection("Suggested TESDA Certifications", lastResult.tesda_suggestions);
+    addSection("Scholarships to Look Into", lastResult.scholarship_suggestions);
+    addSection("Entry-Level Career Paths", lastResult.career_suggestions);
+    addSection("Institutions to Check", lastResult.institution_suggestions);
+
+    doc.save("CareerPath_AI_Guidance_Report.pdf");
+});
 
   loadOnetQuestions();
 }
