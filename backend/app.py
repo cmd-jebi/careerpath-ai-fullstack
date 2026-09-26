@@ -38,8 +38,8 @@ Do not recommend the old 4-strand (STEM/ABM/HUMSS/TVL) model — it no longer ex
 
 def _generate_with_resilience(prompt: str):
     models_to_try = [
-        "gemini-2.5-flash",
-        "gemini-1.5-flash"
+        "gemini-3.5-flash-lite",
+        "gemini-3.8-flash"
     ]
     last_error = None
     for model_name in models_to_try:
