@@ -243,17 +243,16 @@ SHS_PATHWAYS = {
 # province so the suggestions are actually locally actionable.
 # ---------------------------------------------------------------------------
 INSTITUTIONS = {
-    "STEM": ["University of the Philippines (multiple campuses)", "Mapua University",
-             "Philippine Normal University", "De La Salle University"],
+    "STEM": ["University of the Philippines (multiple campuses)", "Mapua University", "De La Salle University", "State universities and colleges (SUCs) nationwide"],
     "ABM": ["Polytechnic University of the Philippines", "University of Santo Tomas",
-            "De La Salle University", "Ateneo de Manila University"],
+            "De La Salle University", "Ateneo de Manila University", "State universities and colleges (SUCs) nationwide"],
     "HUMSS": ["Philippine Normal University", "University of the Philippines (multiple campuses)",
-              "Polytechnic University of the Philippines"],
+              "Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
     "GAS": ["Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
     "ARTS": ["University of the Philippines College of Fine Arts", "Technological University of the Philippines",
              "Philippine Women's University School of Fine Arts and Design"],
-    "SPORTS": ["University of the Philippines Diliman (Sports Science)", "Philippine Normal University"],
-    "TECHPRO-ICT": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)",
+    "SPORTS": ["University of the Philippines Diliman (Sports Science)", "Polytechnic University of the Philippines", "Philippine Normal University"],
+    "TECHPRO-ICT": ["Technological University of the Philippines", "Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide", "TESDA Regional Training Centers (nationwide)",
                     "Mapua University"],
     "TECHPRO-IA": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
     "TECHPRO-HE": ["TESDA Regional Training Centers (nationwide)", "Philippine Women's University"],
