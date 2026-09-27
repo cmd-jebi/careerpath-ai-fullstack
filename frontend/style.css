@@ -437,7 +437,7 @@ footer {
    PAGE-SPECIFIC: INDEX.HTML
    ========================================================================== */
     body {
-        background: url(./resources/images/1.png);
+        background: url(assets/backgroundAndLogo/1.png);
     }
 
    .hero {
@@ -479,6 +479,15 @@ footer {
   background: var(--blue-border);
 }
 
+.misc-image,
+.logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.18));
+}
+
 .logo-shine-wrapper {
   position: absolute;
   top: 50%;
@@ -500,8 +509,8 @@ footer {
 .logo-shine {
   position: absolute;
   inset: 0;
-  -webkit-mask-image: url('./resources/images/logo.png');
-  mask-image: url('./resources/images/logo.png');
+  -webkit-mask-image: url('assets/backgroundAndLogo/logo.png');
+  mask-image: url('assets/backgroundAndLogo/logo.png');
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -636,7 +645,7 @@ footer {
    PAGE-SPECIFIC: ABOUT.HTML
    ========================================================================== */
         body {
-        background: url(./resources/images/1.png);
+        background: url(assets/backgroundAndLogo/1.png);
     }
 
 .about-hero {
@@ -800,7 +809,7 @@ footer {
    PAGE-SPECIFIC: CAREERTRACK.HTML
    ========================================================================== */
     body {
-        background: url(./resources/images/2.png);
+        background: url(assets/backgroundAndLogo/2.png);
     }
 
    .top-bar {
@@ -1031,4 +1040,48 @@ footer {
     transition-duration: 0.01ms !important;
   }
   .reveal-on-scroll { opacity: 1 !important; transform: none !important; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .shape-layer {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 auto 2rem;
+    width: clamp(180px, 45vw, 240px);
+    height: clamp(180px, 45vw, 240px);
+    order: -1; /* Displays the 3D graphic above the headline */
+  }
+
+  .logo-shine-wrapper {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .headline span {
+    display: inline-block; /* Keeps words together cleanly on smaller displays */
+  }
+
+  .sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scroll-cue {
+    display: none; /* Hide scroll cue on mobile to prevent overlapping cards */
+  }
 }
