@@ -30,9 +30,8 @@ SYSTEM_CONTEXT = """
 You are assisting a Philippine Senior High School (SHS) guidance tool.
 As of DepEd Memorandum No. 012, s. 2026 (Strengthened SHS Curriculum),
 there are only 2 tracks: Academic and Technical Professional (TechPro).
-Rigid strands no longer exist. Under Academic, a student can pick elective clusters: STEM, ABM, HUMSS, GAS, Arts & Design, Sports.
-TechPro has specializations: ICT, Industrial Arts, Home Economics, Agri-Fishery Arts.
-A "doorway option" lets a student add a limited number of electives from the other track.
+Rigid strands no longer exist. Under Academic, a student can pick elective clusters: "Arts, Social Sciences, and Humanities", "Business and Entrepreneurship", "Science, Technology, Engineering, and Mathematics (STEM)", "Sports, Health, and Wellness", and "Field Experience".
+TechPro has clusters: "Aesthetic, Wellness, and Human Care", "Agri-Fishery Business and Food Innovation", "Artisanry and Creative Enterprise", "Automotive and Small Engine Technologies", "Construction and Building Technologies", "Creative Arts and Design Technologies", "Hospitality and Tourism", "ICT Support and Computer Programming Technologies", "Industrial Technologies", "Maritime Transport". A "doorway option" lets a student add a limited number of electives from the other track.
 Do not recommend the old 4-strand (STEM/ABM/HUMSS/TVL) model — it no longer exists.
 """
 
