@@ -122,140 +122,215 @@ ONET_QUESTIONS = {
 # ---------------------------------------------------------------------------
 
 SHS_PATHWAYS = {
-    "STEM": {
+    # =======================================================================
+    # ACADEMIC TRACK CLUSTERS (5 Clusters)
+    # =======================================================================
+    "ACAD-ARTS-HUMSS": {
         "track": "Academic",
-        "cluster_label": "STEM Cluster",
-        "degrees": ["BS Computer Science", "BS Civil/Electrical/Mechanical Engineering",
-                    "BS Nursing", "BS Biology / Medical Technology", "BS Architecture"],
-        "tesda": ["Computer Systems Servicing NC II", "Electrical Installation & Maintenance NC II",
-                  "Shielded Metal Arc Welding NC II"],
-        "scholarships": ["DOST-SEI S&T Undergraduate Scholarship", "CHED Merit Scholarship Program",
-                          "UniFAST Tertiary Education Subsidy"],
-        "careers": ["Junior Software Developer", "Engineering Technician",
-                    "Laboratory Assistant", "Research Aide"],
+        "cluster_label": "Arts, Social Sciences, and Humanities Cluster",
+        "degrees": [
+            "AB Communication", "BA Political Science", "BS Psychology",
+            "BA Sociology", "Bachelor of Elementary/Secondary Education"
+        ],
+        "tesda": [
+            "Events Management Services NC II", "Social Work Aide Training",
+            "Communication & Media Skills Training (TWSP)"
+        ],
+        "scholarships": [
+            "CHED Merit Scholarship Program", "UniFAST Tertiary Education Subsidy",
+            "DSWD/LGU Social Work Assistance Grants"
+        ],
+        "careers": [
+            "Community Development Aide", "Media/Content Production Assistant",
+            "HR/Admin Assistant", "Teacher's Aide"
+        ],
     },
-    "ABM": {
+    "ACAD-BUSINESS": {
         "track": "Academic",
-        "cluster_label": "ABM Cluster",
-        "degrees": ["BS Accountancy", "BS Business Administration", "BS Entrepreneurship",
-                    "BS Economics", "BS Office Administration"],
-        "tesda": ["Bookkeeping NC III", "Financial Management Training (TWSP)",
-                  "Events Management Services NC II"],
-        "scholarships": ["CHED Merit Scholarship Program", "TESDA TWSP",
-                          "LGU-sponsored local scholarship grants"],
-        "careers": ["Bookkeeping Clerk", "Sales Associate / Account Executive Trainee",
-                    "Junior Business Analyst", "Administrative Assistant"],
+        "cluster_label": "Business and Entrepreneurship Cluster",
+        "degrees": [
+            "BS Accountancy", "BS Business Administration", "BS Entrepreneurship",
+            "BS Economics", "BS Office Administration"
+        ],
+        "tesda": [
+            "Bookkeeping NC III", "Financial Management Training (TWSP)",
+            "Events Management Services NC II"
+        ],
+        "scholarships": [
+            "CHED Merit Scholarship Program", "TESDA TWSP",
+            "LGU-sponsored local scholarship grants"
+        ],
+        "careers": [
+            "Bookkeeping Clerk", "Sales Associate / Account Executive Trainee",
+            "Junior Business Analyst", "Administrative Assistant"
+        ],
     },
-    "HUMSS": {
+    "ACAD-STEM": {
         "track": "Academic",
-        "cluster_label": "HUMSS Cluster",
-        "degrees": ["BS Psychology", "AB Communication", "BA Political Science",
-                    "Bachelor of Elementary/Secondary Education", "BA Sociology"],
-        "tesda": ["Events Management Services NC II", "Social Work Aide Training",
-                  "Communication & Media Skills Training (TWSP)"],
-        "scholarships": ["CHED Merit Scholarship Program", "UniFAST Tertiary Education Subsidy",
-                          "DSWD/LGU Social Work Assistance Grants"],
-        "careers": ["Community Development Aide", "Media/Content Production Assistant",
-                    "HR/Admin Assistant", "Teacher's Aide"],
+        "cluster_label": "Science, Technology, Engineering, and Mathematics (STEM) Cluster",
+        "degrees": [
+            "BS Computer Science", "BS Civil/Electrical/Mechanical Engineering",
+            "BS Nursing", "BS Biology / Medical Technology", "BS Architecture"
+        ],
+        "tesda": [
+            "Computer Systems Servicing NC II", "Electrical Installation & Maintenance NC II",
+            "Shielded Metal Arc Welding NC II"
+        ],
+        "scholarships": [
+            "DOST-SEI S&T Undergraduate Scholarship", "CHED Merit Scholarship Program",
+            "UniFAST Tertiary Education Subsidy"
+        ],
+        "careers": [
+            "Junior Software Developer", "Engineering Technician",
+            "Laboratory Assistant", "Research Aide"
+        ],
     },
-    "GAS": {
+    "ACAD-SPORTS-WELLNESS": {
         "track": "Academic",
-        "cluster_label": "General Academic (GAS) Cluster",
-        "degrees": ["Any bachelor's degree requiring general prerequisites",
-                    "BA/BS Liberal Arts", "BS Social Work", "Pre-Law / Pre-Med preparatory programs"],
-        "tesda": ["Basic ICT Skills Training (TWSP)", "Events Management Services NC II",
-                  "Bookkeeping NC III"],
-        "scholarships": ["CHED Merit Scholarship Program", "UniFAST Tertiary Education Subsidy",
-                          "LGU-sponsored local scholarship grants"],
-        "careers": ["Administrative Aide", "Customer Service Representative",
-                    "Utility/General Office Staff", "Call Center Agent Trainee"],
+        "cluster_label": "Sports, Health, and Wellness Cluster",
+        "degrees": [
+            "BS Exercise & Sports Science", "BS Physical Education",
+            "BS Sports Management", "BS Physical Therapy"
+        ],
+        "tesda": [
+            "First Aid NC II", "Fitness Training (TWSP)",
+            "Events Management Services NC II"
+        ],
+        "scholarships": [
+            "Philippine Sports Commission (PSC) Scholarship",
+            "CHED Merit Scholarship Program", "LGU athletic scholarship grants"
+        ],
+        "careers": [
+            "Fitness Program Assistant", "Sports Program Aide",
+            "Recreation Officer Trainee", "Physical Education Assistant"
+        ],
     },
-    "ARTS": {
+    "ACAD-FIELD-EXP": {
         "track": "Academic",
-        "cluster_label": "Arts & Design Electives",
-        "degrees": ["BS Fine Arts", "BS Multimedia Arts", "BS Interior Design", "BA Film / Broadcasting"],
-        "tesda": ["Visual Graphic Design NC III", "Photography NC II", "Animation NC II"],
-        "scholarships": ["CHED Merit Scholarship Program", "NCCA grants",
-                          "UniFAST Tertiary Education Subsidy"],
-        "careers": ["Junior Graphic Designer", "Illustrator/Layout Assistant",
-                    "Photography Assistant", "Production Design Aide"],
+        "cluster_label": "Field Experience Cluster",
+        "degrees": [
+            "Any bachelor's degree requiring contextual fieldwork",
+            "BA/BS Liberal Arts", "BS Social Work", "Pre-Law / Pre-Med preparatory programs"
+        ],
+        "tesda": [
+            "Basic ICT Skills Training (TWSP)", "Events Management Services NC II",
+            "Bookkeeping NC III"
+        ],
+        "scholarships": [
+            "CHED Merit Scholarship Program", "UniFAST Tertiary Education Subsidy",
+            "LGU-sponsored local scholarship grants"
+        ],
+        "careers": [
+            "Field Researcher Assistant", "Administrative Aide",
+            "Customer Service Representative", "Project Assistant Trainee"
+        ],
     },
-    "SPORTS": {
-        "track": "Academic",
-        "cluster_label": "Sports Track Electives",
-        "degrees": ["BS Exercise & Sports Science", "BS Physical Education", "BS Sports Management"],
-        "tesda": ["First Aid NC II", "Fitness Training (TWSP)", "Events Management Services NC II"],
-        "scholarships": ["Philippine Sports Commission (PSC) Scholarship", "CHED Merit Scholarship Program",
-                          "LGU athletic scholarship grants"],
-        "careers": ["Fitness Program Assistant", "Sports Program Aide",
-                    "Recreation Officer Trainee", "PE Teacher's Aide"],
+
+    # =======================================================================
+    # TECHPRO TRACK CLUSTERS (10 Clusters)
+    # =======================================================================
+    "TECHPRO-AESTHETIC": {
+        "track": "TechPro",
+        "cluster_label": "Aesthetic, Wellness, and Human Care Cluster",
+        "degrees": ["BS Beauty Care Management", "BS Physical Therapy Aide", "BS Hospitality Management"],
+        "tesda": ["Beauty Care NC II", "Wellness Massage NC II", "Hairdressing NC II"],
+        "scholarships": ["TESDA TWSP", "LGU Skills Training Grants"],
+        "careers": ["Spa/Wellness Therapist", "Hair & Style Assistant", "Personal Care Specialist"],
+    },
+    "TECHPRO-AGRI-FOOD": {
+        "track": "TechPro",
+        "cluster_label": "Agri-Fishery Business and Food Innovation Cluster",
+        "degrees": ["BS Agriculture", "BS Agribusiness", "BS Food Technology", "BS Fisheries"],
+        "tesda": ["Organic Agriculture Production NC II", "Agricultural Crops Production NC II", "Food Processing NC II"],
+        "scholarships": ["DA-ATI Agricultural Scholarships", "TESDA TWSP", "CHED Merit Scholarship Program"],
+        "careers": ["Agri-Business Technician", "Food Processing Assistant", "Farm Operations Specialist"],
+    },
+    "TECHPRO-ARTISANRY": {
+        "track": "TechPro",
+        "cluster_label": "Artisanry and Creative Enterprise Cluster",
+        "degrees": ["BS Entrepreneurship", "BS Craft & Material Design", "BS Fine Arts"],
+        "tesda": ["Handicraft Maker NC II", "Jewelry Making NC II", "Fashion Design/Dressmaking NC II"],
+        "scholarships": ["TESDA TWSP", "DTI-DADA Enterprise Grants"],
+        "careers": ["Crafts Specialist", "Artisan Enterprise Assistant", "Product Designer Assistant"],
+    },
+    "TECHPRO-AUTO": {
+        "track": "TechPro",
+        "cluster_label": "Automotive and Small Engine Technologies Cluster",
+        "degrees": ["BS Automotive Technology", "BS Mechanical Engineering Technology"],
+        "tesda": ["Automotive Servicing NC I/II", "Motorcycle/Small Engine Servicing NC II"],
+        "scholarships": ["TESDA TWSP", "Private-industry apprenticeship grants"],
+        "careers": ["Automotive Service Assistant", "Small Engine Repair Technician", "Fleet Maintenance Aide"],
+    },
+    "TECHPRO-CONSTRUCTION": {
+        "track": "TechPro",
+        "cluster_label": "Construction and Building Technologies Cluster",
+        "degrees": ["BS Civil Engineering Technology", "BS Construction Management", "BS Architecture"],
+        "tesda": ["Carpentry NC II", "Masonry NC II", "Plumbing NC II", "Tile Setting NC II"],
+        "scholarships": ["TESDA TWSP", "Industry-sponsored Apprenticeship Grants"],
+        "careers": ["Construction Site Assistant", "Junior Carpenter/Mason", "Building Maintenance Technician"],
+    },
+    "TECHPRO-CREATIVE-MEDIA": {
+        "track": "TechPro",
+        "cluster_label": "Creative Arts and Design Technologies Cluster",
+        "degrees": ["BS Fine Arts", "BS Multimedia Arts", "BS Industrial Design"],
+        "tesda": ["Visual Graphic Design NC III", "Photography NC II", "2D/3D Animation NC II"],
+        "scholarships": ["CHED Merit Scholarship Program", "NCCA Grants", "TESDA TWSP"],
+        "careers": ["Junior Graphic Designer", "Digital Illustrator Aide", "Media Layout Assistant"],
+    },
+    "TECHPRO-HOSPITALITY": {
+        "track": "TechPro",
+        "cluster_label": "Hospitality and Tourism Cluster",
+        "degrees": ["BS Hospitality Management", "BS Tourism Management"],
+        "tesda": ["Cookery NC II", "Bread & Pastry Production NC II", "Housekeeping NC II", "Front Office Services NC II"],
+        "scholarships": ["TESDA TWSP", "DOT Tourism Training Grants"],
+        "careers": ["Kitchen Assistant", "Hotel Front Desk Staff", "Tour Operations Assistant"],
     },
     "TECHPRO-ICT": {
         "track": "TechPro",
-        "cluster_label": "ICT Specialization",
+        "cluster_label": "ICT Support and Computer Programming Technologies Cluster",
         "degrees": ["BS Information Technology", "BS Computer Science", "BS Information Systems"],
-        "tesda": ["Computer Systems Servicing NC II", "Web Development NC III", "Animation NC II"],
-        "scholarships": ["TESDA TWSP", "DICT Digital Jobs / Tech4ED programs", "CHED Merit Scholarship Program"],
-        "careers": ["IT Support Technician", "Junior Web Developer",
-                    "Computer Systems Technician", "Data Entry Specialist"],
+        "tesda": ["Computer Systems Servicing NC II", "Web Development NC III", "Programming (.NET/Java) NC III"],
+        "scholarships": ["TESDA TWSP", "DICT Digital Jobs Programs", "CHED Merit Scholarship Program"],
+        "careers": ["IT Support Technician", "Junior Web Developer", "Systems Administrator Aide"],
     },
-    "TECHPRO-IA": {
+    "TECHPRO-INDUSTRIAL": {
         "track": "TechPro",
-        "cluster_label": "Industrial Arts Specialization",
-        "degrees": ["BS Industrial Technology", "BS Civil/Electrical Engineering", "BS Architecture"],
-        "tesda": ["Electrical Installation & Maintenance NC II", "Shielded Metal Arc Welding NC I/II",
-                  "Automotive Servicing NC I/II"],
-        "scholarships": ["TESDA TWSP", "Private-industry apprenticeship grants", "CHED Merit Scholarship Program"],
-        "careers": ["Electrician's Assistant", "Automotive Technician",
-                    "Welding Technician", "Construction Skilled Worker"],
+        "cluster_label": "Industrial Technologies Cluster",
+        "degrees": ["BS Industrial Technology", "BS Electrical Engineering Technology"],
+        "tesda": ["Electrical Installation & Maintenance NC II", "Shielded Metal Arc Welding NC I/II", "Machining NC II"],
+        "scholarships": ["TESDA TWSP", "DOST-SEI Technical Scholarships"],
+        "careers": ["Electrician Assistant", "Industrial Machinist Aide", "Welding Technician"],
     },
-    "TECHPRO-HE": {
+    "TECHPRO-MARITIME": {
         "track": "TechPro",
-        "cluster_label": "Home Economics Specialization",
-        "degrees": ["BS Hotel & Restaurant Management", "BS Tourism Management", "BS Fashion & Textile Design"],
-        "tesda": ["Cookery NC II", "Bread & Pastry Production NC II", "Housekeeping NC II", "Dressmaking NC II"],
-        "scholarships": ["TESDA TWSP", "DOT-affiliated tourism training grants", "CHED Merit Scholarship Program"],
-        "careers": ["Kitchen/Pastry Assistant", "Front Office/Housekeeping Staff",
-                    "Dressmaking & Tailoring Assistant", "Tourism Service Crew"],
-    },
-    "TECHPRO-AFA": {
-        "track": "TechPro",
-        "cluster_label": "Agri-Fishery Arts Specialization",
-        "degrees": ["BS Agriculture", "BS Fisheries", "BS Agribusiness", "BS Forestry"],
-        "tesda": ["Organic Agriculture Production NC II", "Aquaculture NC II", "Agricultural Crops Production NC II"],
-        "scholarships": ["DA-ATI Agricultural Scholarships", "TESDA TWSP", "CHED Merit Scholarship Program"],
-        "careers": ["Farm Technician", "Aquaculture Technician",
-                    "Agribusiness Assistant", "Agricultural Extension Aide"],
+        "cluster_label": "Maritime Transport Cluster",
+        "degrees": ["BS Marine Transportation", "BS Marine Engineering"],
+        "tesda": ["Deck Seamanship NC II", "Engine Watchkeeping NC II"],
+        "scholarships": ["MARINA/CHED Maritime Scholarships", "Private Maritime Foundation Grants"],
+        "careers": ["Junior Seaman Trainee", "Marine Engine Cadet Aide", "Port Operations Staff"],
     },
 }
 
 # ---------------------------------------------------------------------------
-# Starter institution reference list. This is intentionally a small, manually
-# curated sample of well-known national institutions per cluster/specialization
-# — NOT a comprehensive or verified national/regional directory. Specific
-# institution names and locations are exactly the kind of long-tail factual
-# detail an LLM is most likely to get wrong (outdated campus info, invented
-# programs, wrong region), so we deliberately ground the AI on this fixed list
-# rather than letting it generate institution names freely. Before using this
-# for real student guidance, your team should expand it using CHED's public
-# list of HEIs with government-recognized programs and TESDA's UTPRAS registry
-# of accredited training providers, ideally filtered to your own region/
-# province so the suggestions are actually locally actionable.
+# Starter institution reference list mapped to the 15 strengthened clusters.
 # ---------------------------------------------------------------------------
 INSTITUTIONS = {
-    "STEM": ["University of the Philippines (multiple campuses)", "Mapua University", "De La Salle University", "State universities and colleges (SUCs) nationwide"],
-    "ABM": ["Polytechnic University of the Philippines", "University of Santo Tomas",
-            "De La Salle University", "Ateneo de Manila University", "State universities and colleges (SUCs) nationwide"],
-    "HUMSS": ["Philippine Normal University", "University of the Philippines (multiple campuses)",
-              "Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
-    "GAS": ["Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
-    "ARTS": ["University of the Philippines College of Fine Arts", "Technological University of the Philippines",
-             "Philippine Women's University School of Fine Arts and Design"],
-    "SPORTS": ["University of the Philippines Diliman (Sports Science)", "Polytechnic University of the Philippines", "Philippine Normal University"],
-    "TECHPRO-ICT": ["Technological University of the Philippines", "Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide", "TESDA Regional Training Centers (nationwide)",
-                    "Mapua University"],
-    "TECHPRO-IA": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
-    "TECHPRO-HE": ["TESDA Regional Training Centers (nationwide)", "Philippine Women's University"],
-    "TECHPRO-AFA": ["Central Luzon State University", "Visayas State University",
-                     "TESDA Agri-Fishery Training Centers (regional)"],
+    # Academic Track
+    "ACAD-ARTS-HUMSS": ["Philippine Normal University", "University of the Philippines (multiple campuses)", "Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
+    "ACAD-BUSINESS": ["Polytechnic University of the Philippines", "University of Santo Tomas", "De La Salle University", "Ateneo de Manila University", "State universities and colleges (SUCs) nationwide"],
+    "ACAD-STEM": ["University of the Philippines (multiple campuses)", "Mapua University", "De La Salle University", "Technological University of the Philippines", "State universities and colleges (SUCs) nationwide"],
+    "ACAD-SPORTS-WELLNESS": ["University of the Philippines Diliman (Sports Science)", "Polytechnic University of the Philippines", "Philippine Normal University", "State universities and colleges (SUCs) nationwide"],
+    "ACAD-FIELD-EXP": ["Polytechnic University of the Philippines", "State universities and colleges (SUCs) nationwide"],
+
+    # TechPro Track
+    "TECHPRO-AESTHETIC": ["TESDA Regional Training Centers (nationwide)", "Philippine Women's University"],
+    "TECHPRO-AGRI-FOOD": ["Central Luzon State University", "Visayas State University", "University of the Philippines Los Baños", "TESDA Agri-Fishery Training Centers (regional)"],
+    "TECHPRO-ARTISANRY": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
+    "TECHPRO-AUTO": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
+    "TECHPRO-CONSTRUCTION": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
+    "TECHPRO-CREATIVE-MEDIA": ["University of the Philippines College of Fine Arts", "Technological University of the Philippines", "De La Salle-College of Saint Benilde"],
+    "TECHPRO-HOSPITALITY": ["TESDA Regional Training Centers (nationwide)", "Philippine Women's University", "State universities and colleges (SUCs) nationwide"],
+    "TECHPRO-ICT": ["Technological University of the Philippines", "Polytechnic University of the Philippines", "Mapua University", "TESDA Regional Training Centers (nationwide)"],
+    "TECHPRO-INDUSTRIAL": ["Technological University of the Philippines", "TESDA Regional Training Centers (nationwide)"],
+    "TECHPRO-MARITIME": ["Philippine Merchant Marine Academy (PMMA)", "MAAP (Maritime Academy of Asia and the Pacific)", "NTMA (NYK-TDG Maritime Academy)"],
 }
